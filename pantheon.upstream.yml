@@ -22,3 +22,11 @@ workflows:
       - type: webphp
         description: Run a site install with the standard profile
         script: private/scripts/mosaic-quicksilver/deploy_product/install_site_from_profile.php
+  create_cloud_development_environment:
+    after:
+      - type: webphp
+        description:  Echo out all available vars for after process of upstream site creation
+        script: private/scripts/echo_quicksilver_vars_available.php
+      - type: webphp
+        description: Enable Devel etc.
+        script: private/scripts/enable_dev_modules.php
